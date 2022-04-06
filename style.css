@@ -1,0 +1,69 @@
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: #EEF9BF;
+  }
+h1{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 66px;
+    letter-spacing: -0.004em;
+    color: #75B79E;
+}
+.game-name{
+
+    position: absolute;
+    top: 40px;
+    width: 100%;
+    height: 63px;
+    display: flex;
+    justify-content: center;
+}
+.parrot-card{
+    width: 117px;
+    height: 146px;
+    background: #A7E9AF;
+    border: 1px solid #99CEA8;
+    box-sizing: border-box;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 18px;
+}
+.image-card{
+    width: 100px;
+    height: 100px;
+}
+.cards-section{
+    margin-top: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: wrap;
+}
+
+@media (max-width: 935px) {
+
+    .cards-section{
+        margin-top: 180px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .parrot-card{
+        width: 117px;
+        height: 146px;
+        background: #A7E9AF;
+        border: 1px solid #99CEA8;
+        box-sizing: border-box;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 18px;
+    }
+}
