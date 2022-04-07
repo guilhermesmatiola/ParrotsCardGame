@@ -1,5 +1,15 @@
 let n_card=0;
 let array=[];
+let n_click=0;
+let lastParrot;
+let lastParrotElement;
+let nPairs=0;
+
+let sec=0;
+setInterval(function(){
+    document.getElementById('timerDisplay').innerHTML="Timer: "+sec+" segundos";
+    sec++;
+}, 1000);
 
 n_Cards();
 selectCards();
@@ -27,28 +37,44 @@ function randomize(){
 
 function cardsCreator(){
     for(let i=0; i<(n_card); i++){
-        if(array[i]==1) cardCreator("unicornparrot");
-        if(array[i]==2) cardCreator("metalparrot");
-        if(array[i]==3) cardCreator("revertitparrot");
-        if(array[i]==4) cardCreator("explodyparrot");
-        if(array[i]==5) cardCreator("bobrossparrot");
-        if(array[i]==6) cardCreator("fiestaparrot");
-        if(array[i]==0) cardCreator("tripletsparrot");
+        if(array[i]==1) cardCreator("unicornparrot",1);
+        if(array[i]==2) cardCreator("metalparrot",2);
+        if(array[i]==3) cardCreator("revertitparrot",3);
+        if(array[i]==4) cardCreator("explodyparrot",4);
+        if(array[i]==5) cardCreator("bobrossparrot",5);
+        if(array[i]==6) cardCreator("fiestaparrot",6);
+        if(array[i]==0) cardCreator("tripletsparrot",0);
     }
 }
 
-function cardCreator(parrot){
+function cardCreator(parrot,id){
     document.querySelector(".cards-section").innerHTML+=`
-    <div class="parrot-card" onclick="alt(this)">
-        <div>
+    <div class="parrot-card" id="${id}" onclick="flipcard(this)">
+
+        <div class="back-face face">
+            <img class="gif-card" src="${parrot}.gif" alt="${parrot}">
+        </div>
+
+        <div class="front-face face">
             <img class="image-card" src="front.png" alt="Parrot">
         </div>
-        <div>
-            <img class="gif-card" src="${parrot}.gif" alt="Parrot">
-        </div>
+        
     </div>
     `;
 }
-function alt(element){
-    element.querySelector(".image-card").classList.toggle("gif-card");
+function flipcard(element){
+
+    element.querySelector(".front-face").classList.toggle("front-face-flip");
+    element.querySelector(".front-face").classList.toggle("front-face");
+
+    element.querySelector(".back-face").classList.toggle("back-face-flip");
+    element.querySelector(".back-face").classList.toggle("back-face");
 }
+
+function unflipcard(element) {
+    element.querySelector(".front-face-flip").classList.toggle("front-face");
+    element.querySelector(".front-face-flip").classList.toggle("front-face-flip");
+  
+    element.querySelector(".back-face-flip").classList.toggle("back-face");
+    element.querySelector(".back-face-flip").classList.toggle("back-face-flip");
+  }

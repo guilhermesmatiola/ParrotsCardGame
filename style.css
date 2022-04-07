@@ -32,6 +32,8 @@ h1{
     align-items: center;
     margin-right: 18px;
     margin-top: 18px;
+    position: relative;
+
 }
 .image-card{
     width: 100px;
@@ -51,6 +53,37 @@ h1{
     margin-left: 18%;
     margin-right: 18%;
 }
+
+
+
+.face {
+    width: 100%;
+    height: 100%;
+    background-color: #a7e9af;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    backface-visibility: hidden;
+    transition: all 0.5s;
+    transform-style: preserve-3d;
+  }
+  
+  .back-face {
+    transform: rotateY(180deg);
+  }
+  
+  .back-face-flip {
+    transform: rotateY(0deg);
+  }
+  
+  .front-face-flip {
+    transform: rotateY(-180deg);
+  }
+  
+
 
 @media (max-width: 935px) {
 
