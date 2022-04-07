@@ -31,17 +31,25 @@ h1{
     justify-content: center;
     align-items: center;
     margin-right: 18px;
+    margin-top: 18px;
 }
 .image-card{
     width: 100px;
     height: 100px;
 }
+.gif-card{
+    width: 100px;
+    height: 100px;
+}
+
 .cards-section{
     margin-top: 150px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: wrap;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-left: 18%;
+    margin-right: 18%;
 }
 
 @media (max-width: 935px) {
