@@ -82,7 +82,9 @@ h1{
   .front-face-flip {
     transform: rotateY(-180deg);
   }
-  
+  .pointerEventsNone {
+    pointer-events: none;
+  }
 
 
 @media (max-width: 935px) {

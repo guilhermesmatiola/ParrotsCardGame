@@ -3,7 +3,7 @@ let array=[];
 let n_click=0;
 let lastParrot;
 let lastParrotElement;
-let nPairs=0;
+let n_pairs=0;
 
 let sec=0;
 setInterval(function(){
@@ -64,11 +64,19 @@ function cardCreator(parrot,id){
 }
 function flipcard(element){
 
+    n_click++;
+    if (element.querySelector(".front-face") == null) {
+        //delay cartas diferentes
+        unflip(element);
+        return;
+    }
+
     element.querySelector(".front-face").classList.toggle("front-face-flip");
     element.querySelector(".front-face").classList.toggle("front-face");
 
     element.querySelector(".back-face").classList.toggle("back-face-flip");
     element.querySelector(".back-face").classList.toggle("back-face");
+    memory(element);
 }
 
 function unflipcard(element) {
@@ -77,4 +85,39 @@ function unflipcard(element) {
   
     element.querySelector(".back-face-flip").classList.toggle("back-face");
     element.querySelector(".back-face-flip").classList.toggle("back-face-flip");
+}
+
+function memory(element) {
+    let actualParrot = element.getAttribute("id");
+    if (lastParrot != null) {
+      if (actualParrot == lastParrot) {
+        lastParrotElement.classList.add("pointerEventsNone"); //pointer events altera com evento do mouse e pega o elemento total, e de baixo
+        element.classList.add("pointerEventsNone");
+        lastParrot = null;
+        n_pairs++;
+        if (n_pairs == n_card / 2) {
+          setTimeout(function () {
+            alert(`Você ganhou em ${n_click} jogadas e ${sec - 1} segundos!`);
+            let restart = prompt("Deseja jogar novamente?(responda com 'sim' ou 'não')");
+            if (restart == "sim") {
+              document.location.reload();
+            }
+          }, 1000);
+        }
+        return;
+      } else {
+        setTimeout(function () {
+          unflipcard(element);
+          unflipcard(lastParrotElement);
+          lastParrot = null;
+          lastParrotElement = null;
+          return;
+        }, 1000);
+      }
+    } 
+    else {
+      lastParrot = actualParrot;
+      lastParrotElement = element;
+      return;
+    }
   }
