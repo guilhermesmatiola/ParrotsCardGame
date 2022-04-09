@@ -97,7 +97,7 @@ function memory(element) {
         n_pairs++;
         if (n_pairs == n_card / 2) {
           setTimeout(function () {
-            alert(`Você ganhou em ${n_click} jogadas e ${sec - 1} segundos!`);
+            alert(`Você venceu em ${n_click} jogadas e em ${sec - 1} segundos!`);
             let restart = prompt("Deseja jogar novamente?(responda com 'sim' ou 'não')");
             if (restart == "sim") {
               document.location.reload();
@@ -121,3 +121,4 @@ function memory(element) {
       return;
     }
   }
+  

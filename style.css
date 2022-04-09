@@ -54,7 +54,16 @@ h1{
     margin-right: 18%;
 }
 
-
+p{
+  font-family: 'Roboto';
+  letter-spacing: -0.004em;
+    color: #75B79E;
+    font-size: 30px;
+}
+.timer-location{
+  display: flex;
+  justify-content: center;
+}
 
 .face {
     width: 100%;
@@ -107,6 +116,6 @@ h1{
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 18px;
+        margin-top: 48px;
     }
 }
